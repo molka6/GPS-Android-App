@@ -23,20 +23,44 @@ public class IndexActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_index);
-        ListView vehicule;
-        String[] mvehicule={"voiture1","voiture2","voiture3"};
-            vehicule=(ListView) findViewById(R.id.vehicule);
-            ArrayAdapter<String> listAdapter=new ArrayAdapter<String>(
-                    this, android.R.layout.simple_list_item_1,mvehicule);
-            vehicule.setAdapter(listAdapter);
+        TextView t=findViewById(R.id.GO);
+        TextView t2=findViewById(R.id.GO2);
+        TextView t3=findViewById(R.id.GO3);
 
-            vehicule.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-                    Intent t = new Intent(IndexActivity.this, MapsActivity.class);
-                    startActivity(t);
-                }
-            });
-        }@Override
+
+        t.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent t = new Intent(IndexActivity .this, MapsActivity.class);
+                startActivity(t);
+            }
+        });
+        t2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent t = new Intent(IndexActivity .this, MapsActivity.class);
+                startActivity(t);
+            }
+        });
+        t3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent t = new Intent(IndexActivity .this, MapsActivity.class);
+                startActivity(t);
+            }
+        });
+
+
+
+
+    }
+
+
+
+
+
+
+        @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);

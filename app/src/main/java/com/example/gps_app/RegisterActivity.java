@@ -1,5 +1,4 @@
 package com.example.gps_app;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,32 +8,28 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
-
 public class RegisterActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
         EditText et_email,et_username,et_phone,et_password,et_confirm_password;
         et_email=findViewById(R.id.et_email) ;
         et_username=findViewById(R.id.et_username) ;
         et_phone=findViewById(R.id.et_phone) ;
-        et_password=findViewById(R.id.et_password) ;
+        et_password=findViewById(R.id.pasword) ;
         et_confirm_password=findViewById(R.id.et_confirm_password) ;
         FirebaseAuth fAuth;
         fAuth=FirebaseAuth.getInstance() ;
-        Button button_signin;
+        TextView button_signin;
         button_signin=findViewById(R.id.button_signin);
-
         button_signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,7 +44,6 @@ public class RegisterActivity extends AppCompatActivity {
                     et_password.setError("password is required");
                     return;
                 }
-
                 if (password.length() < 6) {
                     et_password.setError("password must be 6 characters");
                     return;
@@ -70,18 +64,6 @@ public class RegisterActivity extends AppCompatActivity {
                             }
                         }
                 );
-
-
-
-
-
-
-
-
-
-
-
             }
         });
-
     }}
