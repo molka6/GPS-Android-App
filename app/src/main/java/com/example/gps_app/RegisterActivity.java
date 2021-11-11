@@ -20,9 +20,9 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        EditText et_email,et_username,et_phone,et_password,et_confirm_password;
-        et_email=findViewById(R.id.et_email) ;
-        et_username=findViewById(R.id.et_username) ;
+        EditText et_email ,et_phone,et_password,et_confirm_password ,user;
+        user=findViewById(R.id.username) ;
+        et_email=findViewById(R.id.email) ;
         et_phone=findViewById(R.id.et_phone) ;
         et_password=findViewById(R.id.pasword) ;
         et_confirm_password=findViewById(R.id.et_confirm_password) ;
@@ -56,7 +56,6 @@ public class RegisterActivity extends AppCompatActivity {
                                     Toast.makeText(RegisterActivity.this, "Successful", Toast.LENGTH_LONG).show();
                                     Intent t = new Intent(RegisterActivity.this, MainActivity.class);
                                     startActivity(t);
-
                                 } else {
                                     Toast.makeText(RegisterActivity.this, "Error !", Toast.LENGTH_LONG).show();
                                 }

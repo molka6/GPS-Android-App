@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,6 +27,8 @@ public class IndexActivity extends AppCompatActivity {
         TextView t=findViewById(R.id.GO);
         TextView t2=findViewById(R.id.GO2);
         TextView t3=findViewById(R.id.GO3);
+
+        ImageView x1=findViewById(R.id.logout);
 
 
         t.setOnClickListener(new View.OnClickListener() {
@@ -50,38 +53,17 @@ public class IndexActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-    }
-
-
-
-
-
-
-        @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
-        return true;
-
-    }
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.item2: {
+        x1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
                 Intent t=new Intent(IndexActivity.this , MainActivity.class) ;
                 startActivity(t);
                 finish();
             }
-        }
-        return super.onOptionsItemSelected(item);
+        });
+
+
+
     }
-
-
-
-
-
 }

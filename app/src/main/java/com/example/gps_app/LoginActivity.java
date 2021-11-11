@@ -38,6 +38,13 @@ public class LoginActivity extends AppCompatActivity {
 
         FirebaseAuth fAuth = FirebaseAuth.getInstance();
 
+
+        if(fAuth.getCurrentUser() != null){
+            Intent t=new Intent(LoginActivity.this , IndexActivity.class) ;
+            startActivity(t);
+            finish();
+        }
+
         e3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

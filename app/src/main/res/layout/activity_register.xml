@@ -75,7 +75,7 @@
                     android:background="#CACACA" />
 
                 <EditText
-                    android:id="@+id/et_email"
+                    android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"

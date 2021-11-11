@@ -7,11 +7,14 @@
     android:background="@drawable/actbg"
     android:orientation="vertical"
     tools:context=".IndexActivity">
+
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp">
+
         <ImageView
+            android:id="@+id/logout"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_margin="20dp"
@@ -23,9 +26,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="blala"
-            android:textSize="20dp"
             android:textColor="@color/black"
-            >
+            android:textSize="20dp">
+
+
         </TextView>
 
     </LinearLayout>
@@ -190,5 +194,6 @@
             android:layout_height="50dp"
             android:background="@drawable/ic_plus" />
     </LinearLayout>
+
 </LinearLayout>
 
