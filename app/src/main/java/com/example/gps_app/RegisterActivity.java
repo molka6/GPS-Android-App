@@ -40,6 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email = et_email.getText().toString().trim();
                 String password = et_password.getText().toString().trim();
+                String confirm_password = et_confirm_password.getText().toString().trim();
                 if (TextUtils.isEmpty(email)) {
                     et_email.setError("Email is required");
                     return;
@@ -48,8 +49,9 @@ public class RegisterActivity extends AppCompatActivity {
                     et_password.setError("password is required");
                     return;
                 }
+
                 if (password.length() < 6) {
-                    et_password.setError("password Must be 6 characters");
+                    et_password.setError("password must be 6 characters");
                     return;
                 }
                 fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(

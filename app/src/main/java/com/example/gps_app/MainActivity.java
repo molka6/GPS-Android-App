@@ -1,8 +1,10 @@
 package com.example.gps_app;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,6 +14,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         et_email = findViewById(R.id.et_username);
         et_password = findViewById(R.id.et_password);
         Button b = findViewById(R.id.button_signin);
+        Button forgetTextLink=findViewById(R.id.button_forgot_password);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(MainActivity.this, "logged in Successfully", Toast.LENGTH_LONG).show();
-                                    startActivity(new Intent(getApplicationContext(), RegisterActivity.class));
+                                    startActivity(new Intent(getApplicationContext(), IndexActivity.class));
                                 } else {
                                     Toast.makeText(MainActivity.this, "Error !", Toast.LENGTH_LONG).show();
                                     // b.setVisibility(View.GONE);
@@ -74,8 +79,41 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        forgetTextLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText resetMail=new EditText(v.getContext());
+                AlertDialog.Builder builder=new AlertDialog.Builder(v.getContext());
+                builder.setTitle("Reset Password ?");
+                builder.setMessage("Enter Your Email To  Reset Link") ;
+                builder.setView(resetMail);
+                builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String mail=resetMail.getText().toString();
+                        fAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(MainActivity.this, "Reset Link Sent To Your Email", Toast.LENGTH_LONG).show();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(MainActivity.this, "Error ! Reset Link is not Sent", Toast.LENGTH_LONG).show();
 
+                            }
+                        }); }
+                });
 
+                builder.setNegativeButton("No",null);
+                builder.show();
+            }
+        });
 
     }
 }
+
+
+
+
+
