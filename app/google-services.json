@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "720299235034",
+    "project_id": "gps-app-eaf7b",
+    "storage_bucket": "gps-app-eaf7b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720299235034:android:5ac0a01c6795d464bff7e3",
+        "android_client_info": {
+          "package_name": "com.example.gps_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720299235034-4o2jk59dhtljcppc58uqkrqk2vjmnbim.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuIWxaeyttKWcxHCdovyOiFS9Dwa6Nns0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "720299235034-4o2jk59dhtljcppc58uqkrqk2vjmnbim.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
